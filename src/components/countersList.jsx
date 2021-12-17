@@ -19,19 +19,19 @@ const CountersList = () => {
         setCounters(initialState);
         console.log("handle reset");
     };
-    const handleDecrement = (val) => {
-         const Decrement = counters.map(i=>{
-            return i.value===val?i.value-1:i
+    const handleDecrement = (id) => {
+         const Decrement = counters.map((i)=>{
+            i.value = i.id===id?i.value-1:i.value
+            return i
         });
-        //  setCounters(Decrement)
-        console.log(Decrement)
+         setCounters(Decrement)
     };
-    const handleIncrement = (val) => {
-        const Increment = counters.map(i=>{
-            return i.value===val?i.value+1:i
+    const handleIncrement = (id) => {
+        const Increment = counters.map((i)=>{
+            i.value = i.id===id?i.value+1:i.value
+            return i
        });
-        // setCounters(Increment)
-        console.log(Increment)
+        setCounters(Increment)
    };
 
     return (
